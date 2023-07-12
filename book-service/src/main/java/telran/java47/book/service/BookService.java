@@ -1,29 +1,25 @@
 package telran.java47.book.service;
 
-import java.util.List;
-import java.util.Set;
-
 import telran.java47.book.dto.AuthorDto;
 import telran.java47.book.dto.BookDto;
 
 public interface BookService {
-	
 	boolean addBook(BookDto bookDto);
-	
+
 	BookDto findBookByIsbn(String isbn);
 
-	BookDto updateBookTitle(String isbn, String newTitle);
-	
-	List<BookDto> findBooksByAuthor(String name);
+	BookDto remove(String isbn);
 
-	Set<String> findPublishersByAuthor(String authorName);
-	
-	List<AuthorDto> findBookAuthors(String isbn);
+	BookDto updateBook(String isbn, String title);
 
-	List<BookDto> findBooksByPublisher(String publisherName);
+	Iterable<BookDto> findBooksByAuthor(String authorName);
 
-	BookDto removeBook(String isbn);
-	
+	Iterable<BookDto> findBooksByPublisher(String publisherName);
+
+	Iterable<AuthorDto> findBookAuthors(String isbn);
+
+	Iterable<String> findPublishersByAuthor(String authorName);
+
 	AuthorDto removeAuthor(String authorName);
 
 }
